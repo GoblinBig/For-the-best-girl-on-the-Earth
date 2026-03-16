@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For the best GIRL on the Earth</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: background 0.5s ease;
+        }
+
+        /* Страница 1 */
+        body.page1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* Страница 2 */
+        body.page2 {
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 700px;
+            width: 90%;
+            transition: all 0.3s ease;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .clickable-text {
+            display: inline-block;
+            color: #fff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-decoration: none;
+            font-size: 1.3em;
+            font-weight: bold;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin: 10px 0;
+            border: none;
+        }
+
+        .clickable-text:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .gif-container {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #666;
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .back-link:hover {
+            color: #333;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .featured-gif {
+            margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+        }
+
+        .featured-gif h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tenor-gif-embed {
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body id="mainBody" class="page1">
+    <!-- Страница 1 (Главная) -->
+    <div id="page1" class="container page active">
+        <h1>🎉 Добро пожаловать!</h1>
+        <p>Здравствуйте Милена, вы очень милы и привлекательна, да и вообще с вами круто!</p>
+        <button onclick="showPage2()" class="clickable-text">
+            НАЖМИ НА МЕНЯ, НУ ПОЖАЛУЙСТА НАЖМИ🥺
+        </button>
+    </div>
+
+    <!-- Страница 2 (С гифкой) -->
+    <div id="page2" class="container page">
+        <!-- Вставка указанной гифки с Tenor -->
+        <div class="featured-gif">
+                       <div class="tenor-gif-embed" data-postid="1553608537830715989" data-share-method="host" data-aspect-ratio="1.19565" data-width="100%">
+                <a href="https://tenor.com/view/dancing-polish-cow-polish-cow-sd-gif-1553608537830715989">Dancing Polish Sticker</a> from 
+                <a href="https://tenor.com/search/dancing-stickers">Dancing Stickers</a>
+            </div>
+        </div>
+        
+        <p class="back-link" onclick="showPage1()">
+            ← Вернуться на главную
+        </p>
+    </div>
+
+    <!-- Скрипт Tenor для встраивания гифок -->
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+    <script>
+        // Функция для показа первой страницы
+        function showPage1() {
+            document.getElementById('page1').classList.add('active');
+            document.getElementById('page2').classList.remove('active');
+            document.getElementById('mainBody').classList.remove('page2');
+            document.getElementById('mainBody').classList.add('page1');
+        }
+
+        // Функция для показа второй страницы
+        function showPage2() {
+            document.getElementById('page1').classList.remove('active');
+            document.getElementById('page2').classList.add('active');
+            document.getElementById('mainBody').classList.remove('page1');
+            document.getElementById('mainBody').classList.add('page2');
+        }
+    </script>
+</body>
+</html>
